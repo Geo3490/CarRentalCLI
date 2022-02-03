@@ -22,7 +22,7 @@ public class Car {
         return model;
     }
 
-    public boolean isRented() {
+    public boolean getisRented() {
 
         return isRented;
     }

@@ -4,9 +4,9 @@ public class RentalService {
 
     public static void main(String[] args) {
 
-        Car testCar = new Car();
+int testInt = UI.readInt("Enter a num", 1, 10);
 
-        System.out.println("Welcome to the Car Rental CLI");
+        System.out.println(testInt);
 
     }
 }
