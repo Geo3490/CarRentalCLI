@@ -10,20 +10,28 @@ public class UI {
 
     public static int readInt(String question, int min, int max) {
 
-//        try{
-//
-//        } catch (InputMismatchException exception){
-//
-//        }
+        try {
 
+            System.out.println(question);
+            System.out.print("Number(" + min + " - " + max + "): ");
+            int userInput = scanner.nextInt();
+            scanner.nextLine();
+            if (userInput >= min && userInput <= max) {
+                return userInput;
+            }
 
-        System.out.println(question);
-        System.out.print("Number(" + min + " - " + max + "): ");
-        int userInput = scanner.nextInt();
-        if (userInput >= min && userInput <= max) {
-            return userInput;
+            System.out.println("Number outside valid range, try again");
+            return readInt(question, min, max);
+
+        } catch (InputMismatchException exception){
+            System.out.println("Invalid Data Type");
+            scanner.nextLine();
+            return readInt(question, min, max);
+
+        }  catch (Exception exception) {
+            System.out.println(exception.getClass());
+            scanner.nextLine();
+            return readInt(question, min, max);
         }
-        System.out.println("Number outside valid range, try again");
-        return readInt(question, min, max);
     }
 }
