@@ -1,14 +1,14 @@
 package com.careerdevs;
 
 public class Car {
-    public String make;
-    public String model;
-    public boolean isRented;
+    private String make;
+    private String model;
+    private boolean isRented;
 
     public Car(String make,String model, boolean isRented){
-    this.make = make;
-    this.model = model;
-    this.isRented = isRented;
+        this.make = make;
+        this.model = model;
+        this.isRented = false;
 
     }
 
@@ -22,7 +22,11 @@ public class Car {
         return model;
     }
 
-    public boolean getisRented() {
+    public string getName(){
+        return make + " " + model;
+    }
+
+    public boolean getIsRented() {
 
         return isRented;
     }
