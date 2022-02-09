@@ -12,6 +12,11 @@ public class Car {
 
     }
 
+    public String getName() {
+
+        return make + " " + model;
+    }
+
     public String getMake() {
 
         return make;
@@ -22,12 +27,21 @@ public class Car {
         return model;
     }
 
-    public string getName(){
-        return make + " " + model;
+    public boolean isRented(){
+        return isRented;
     }
 
-    public boolean getIsRented() {
+    public void setRented(boolean rented) {
 
-        return isRented;
+        isRented = rented;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", isRented=" + isRented +
+                '}';
     }
 }
