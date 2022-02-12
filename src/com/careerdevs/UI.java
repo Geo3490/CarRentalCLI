@@ -32,7 +32,7 @@ public class UI {
             System.out.println(exception.getClass());
             scanner.nextLine();
             return readInt(question, min, max);
-            System.out.println();
+            System.out.println(readInt());
         }
     }
 }
