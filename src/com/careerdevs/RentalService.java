@@ -2,8 +2,10 @@ package com.careerdevs;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
-//Rental service holds all menus as well as user logic
+//Rental service holds all MENUS as well as USER LOGIC
 public class RentalService {
 
     private static ArrayList<Car> carStorage;
@@ -14,9 +16,10 @@ public class RentalService {
 
 //    carStorage.get(0).setRented(true);//FOR TESTING
 //        carStorage.get(3).setRented(true);//FOR TESTING
-//        rentalMenu();
-//        rentalMenu();
+
         mainMenu();
+        rentalMenu();
+        rentalMenu();
 
     }
 
@@ -49,8 +52,17 @@ public class RentalService {
             return filteredCars;
     }
 
+    //This Approach is the shorter easier way to do the same code block as above.
+    private static ArrayList<Car> getAvailableCars (){
+
+        // Take Array List turning it to stream to modify / filter elements within array.
+        return carStorage.stream().filter(car -> !car.isRented()).collect(Collectors.toCollection(ArrayList::new));
+
+    }
+
         private static void rentalMenu() {
-            ArrayList<Car> availableCars = filteredCars(true);
+            ArrayList<Car> availableCars = getAvailableCars();
+
         //Display available cars
         System.out.println("\nAVAILABLE CARS\n");
         for (int i = 0; i < availableCars.size(); i++){
@@ -59,8 +71,13 @@ public class RentalService {
 
         //read User Input
         int userSelection = UI.readInt("Enter a number to select car to rent", 1, availableCars.size());
+
+
         //inform the user of a successful rent
         System.out.println("You are renting" + " " + availableCars.get(userSelection-1).getName());
+
+//            System.out.println("You are returning" + " " + availableCars.get(userSelection-1).getName());
+
         //updating the car rental status
         availableCars.get(userSelection-1).setRented(true);
     }
