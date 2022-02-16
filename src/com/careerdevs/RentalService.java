@@ -2,7 +2,7 @@ package com.careerdevs;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 import java.util.stream.Collectors;
 
 //Rental service holds all MENUS as well as USER LOGIC
@@ -20,6 +20,7 @@ public class RentalService {
         mainMenu();
         rentalMenu();
         rentalMenu();
+        returnMenu();
 
     }
 
